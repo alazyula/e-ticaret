@@ -8,7 +8,7 @@
           v-for="(product, column) in productsInRow(row)"
           :key="'row' + row + column"
         >
-          <div class="card w-100 mt-5 mb-5 ml-5 mr-5">
+          <div class="card w-100 h-75 mt-5 mb-5 ml-5 mr-5">
              <div class="card-body">
                  <router-link :to="{name:'product', params: {id: product.id}} "  >
                      <h4>{{product.name}}</h4></router-link>

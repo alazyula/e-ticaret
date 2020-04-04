@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketproductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::get('category/{id}','ProductController@categorize');
 Route::post('product','ProductController@store');
 Route::get('product/{product}','ProductController@show');
 Route::post('basket/{id}','BasketController@store');
+Route::get('basket/pick','BasketController@pick' );
+Route::post('basketproduct','BasketproductController@store');

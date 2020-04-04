@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Basket;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,13 @@ class BasketController extends Controller
     {
         //
     }
+    public function pick(){
+        $id=Auth::id();
+        $basket=Basket::where('user_id',$id)->get();
+        
+        return $basket ;
 
+    }
     /**
      * Show the form for creating a new resource.
      *

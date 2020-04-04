@@ -16,6 +16,10 @@ class CreateBasketproductsTable extends Migration
         Schema::create('basketproducts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('basket_id');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedInteger('quantity');
+            $table->unsignedFloat('price');
         });
     }
 
