@@ -12,4 +12,5 @@ class Basket extends Model
     public function basketproduct(){
         return $this->hasMany('app\Basketproduct');
     }
+    protected $fillable = ['user_id'];
 }
