@@ -8,7 +8,7 @@
                 <router-link class="nav-link " :to="{name: 'category'}">Alışveriş yap</router-link>
             </li>
             <li class="nav-item" v-if="isLoggedIn" >
-                 <router-link class="nav-link " :to="{name: 'home'}">Sepetim</router-link>
+                 <router-link class="nav-link " :to="{name: 'basket'}">Sepetim</router-link>
             </li>
             <li class="nav-item" v-if="!isLoggedIn">
                  <router-link class="nav-link" :to="{name: 'login'}">Giriş Yap</router-link>

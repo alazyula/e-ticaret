@@ -3,7 +3,7 @@
     <div >
       <div class="row mb-4" >
         <div class=" w-50 m-auto pt-5 ">         
-             <div class="card card-body">
+             <div class="card card-body" v-if="!added">
                  <h4 class="card-title">{{ product.name }}</h4>
                  <h5 class="card-text">{{ product.description }}
                      <br><br><br>
@@ -20,6 +20,9 @@
                 <p class="card-text" v-if="isLoggedIn&&!isStocked(product)" >Ürün stokta yok</p>
                 <p class="card-text" v-if="!isLoggedIn&&isStocked(product)" >Sepete erişmek için Lütfen Giriş Yapın</p>
                 </div> 
+                <div class="card card-body" v-else>
+                  <h4>Ürün sepete eklendi!</h4>
+                </div>
         </div>   
     </div>
   </div>
@@ -37,6 +40,7 @@ export default {
       quantity: 1,
       basket:null,
       loading:false,
+      added: false
     };
   },
   computed: {
@@ -75,18 +79,17 @@ export default {
   async addToBasket(){
     
     this.loading=true;
-    let debug=0;
+    let total= this.product.price*this.quantity;
     try {
-      //const price= this.product.price*this.quantity;
-      debug++; //debug 1
+      
        await axios.post("/api/basketproduct", {
          basket_id: this.basket[0].id,
          product_id: this.product.id,
          quantity: this.quantity,
-         price: this.product.price,
+         price: total,
          });
-         debug++; //debug2
-         alert("Ürün sepete eklendi");
+         
+         this.added=true;
 
 
     } catch (error) {

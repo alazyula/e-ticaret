@@ -26,3 +26,5 @@ Route::get('product/{product}','ProductController@show');
 Route::post('basket/{id}','BasketController@store');
 Route::get('basket/pick','BasketController@pick' );
 Route::post('basketproduct','BasketproductController@store');
+Route::get('basket','BasketproductController@show');
+Route::delete('basketproduct/{id}','BasketproductController@destroy');

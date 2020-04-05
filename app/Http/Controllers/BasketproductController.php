@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Basket;
 use App\Basketproduct;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class BasketproductController extends Controller
@@ -45,9 +46,14 @@ class BasketproductController extends Controller
      * @param  \App\Basketproduct  $basketproduct
      * @return \Illuminate\Http\Response
      */
-    public function show(Basketproduct $basketproduct)
+    public function show()
     {
-        //
+        $id=Auth::id();
+        $basket=Basket::where('user_id',$id)->get();
+        $iter=$basket[0];
+        $basketproduct=Basketproduct::where('basket_id',$iter->id)->get();
+        
+        return $basketproduct ;
     }
 
     /**
@@ -79,8 +85,10 @@ class BasketproductController extends Controller
      * @param  \App\Basketproduct  $basketproduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Basketproduct $basketproduct)
+    public function destroy($id)
     {
-        //
+      $basketproduct=Basketproduct::find($id);  
+     $basketproduct->delete();
+      return response()->json(null,204);
     }
 }

@@ -30,7 +30,12 @@ const routes= [
         path: "/product/:id",
         component: require("./components/product").default,
         name: "product"
-    }
+    },
+    {
+        path: "/basket",
+        component: require("./components/basket").default,
+        name: "basket"
+    },
 
 ];
 const router= new VueRouter({
