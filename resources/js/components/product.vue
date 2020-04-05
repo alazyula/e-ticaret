@@ -88,7 +88,11 @@ export default {
          quantity: this.quantity,
          price: total,
          });
-         
+     // await axios.put("/api/product/reduce",{
+      //  id: this.product.id,  Şimdilik Bu kısmı yarım kaldı 
+       // quantity: this.quantity,
+
+     // })
          this.added=true;
 
 

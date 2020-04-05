@@ -2519,24 +2519,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 });
 
               case 5:
+                _context.next = 7;
+                return axios.put("/api/product/reduce", {
+                  id: _this.product.id,
+                  quantity: _this.quantity
+                });
+
+              case 7:
                 _this.added = true;
-                _context.next = 11;
+                _context.next = 13;
                 break;
 
-              case 8:
-                _context.prev = 8;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](2);
                 console.log(_context.t0);
 
-              case 11:
+              case 13:
                 _this.loading = false;
 
-              case 12:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[2, 8]]);
+        }, _callee, null, [[2, 10]]);
       }))();
     }
   },
